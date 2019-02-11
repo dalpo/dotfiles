@@ -10,7 +10,7 @@ module Dotfiles
       namespace :tmux do
         desc 'Setup TMUX'
         task install: %i[link] do
-          puts 'Hello tmux!'
+          puts 'Tmux installed!'
         end
 
         desc 'Link tmux configuration'
@@ -21,7 +21,7 @@ module Dotfiles
           else
             ln_s File.join('.dotfiles', 'tmuxfiles', 'tmux.conf'), dotfile
           end
-         end
+        end
       end
     end
   end
