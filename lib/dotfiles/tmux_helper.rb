@@ -1,23 +1,27 @@
 # frozen_string_literal: true
 
-require 'rake'
+require_relative './base_helper'
 
 module Dotfiles
   # Install Rake tasks for tmux
-  class TmuxHelper
-    include Rake::DSL
-
-    def self.install_tasks
-      new.install
-    end
-
+  class TmuxHelper < BaseHelper
     # rubocop:disable Metrics/MethodLength
     def install
       namespace :tmux do
         desc 'Setup TMUX'
-        task :install do
+        task install: %i[link] do
           puts 'Hello tmux!'
         end
+
+        desc 'Link tmux configuration'
+        task :link do
+          dotfile = home('.tmux.conf')
+          if File.exist? dotfile
+            warn "#{dotfile} already exists"
+          else
+            ln_s File.join('.dotfiles', 'tmuxfiles', 'tmux.conf'), dotfile
+          end
+         end
       end
     end
   end
