@@ -8,7 +8,7 @@ module Dotfiles
     def install
       namespace :zsh do
         desc 'Setup zsh'
-        task install: %i[ohmyzsh chsh link] do
+        task install: %i[ohmyzsh chsh link theme] do
           puts 'Zsh installed!'
         end
 
@@ -29,6 +29,19 @@ module Dotfiles
             warn "#{dotfile} already exists"
           else
             ln_s File.join('.dotfiles', 'zshfiles', 'zprofile'), dotfile
+          end
+        end
+
+        desc 'theme'
+        task :theme do
+          theme_path = home('.zsh_dracula_theme')
+          ohmyzsh_theme = home('.oh-my-zsh/themes/dracula.zsh-theme')
+
+          if File.exists?(ohmyzsh_theme)
+            warn 'Ohmyzsh dracula theme already configured'
+          else
+            sh "git clone https://github.com/dracula/zsh.git #{theme_path}"
+            ln_s "#{theme_path}/dracula.zsh-theme", ohmyzsh_theme
           end
         end
       end
