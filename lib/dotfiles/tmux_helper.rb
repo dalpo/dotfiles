@@ -9,8 +9,19 @@ module Dotfiles
     def install
       namespace :tmux do
         desc 'Setup TMUX'
-        task install: %i[link] do
+        task install: %i[tpm link] do
           puts 'Tmux installed!'
+        end
+
+        desc 'Install TPM'
+        task :tpm do
+          dest = home('.tmux/plugins/tpm')
+          if File.exist?(dest)
+            warn('TPM already installed')
+          else
+            mkdir_p dest
+            sh "git clone https://github.com/tmux-plugins/tpm #{dest}"
+          end
         end
 
         desc 'Link tmux configuration'
