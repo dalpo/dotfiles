@@ -11,9 +11,9 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " Plugins
-
 Plugin 'tpope/vim-fugitive'
 Plugin 'elixir-editors/vim-elixir'
+Plugin 'vim-ruby/vim-ruby'
 Plugin 'ctrlp.vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'chriskempson/base16-vim'
@@ -22,6 +22,7 @@ Plugin 'dracula/vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'w0rp/ale'
+Plugin 'Yggdroot/indentLine'
 
 " Leader
 let mapleader = " "
@@ -86,6 +87,14 @@ if executable('ag')
   endif
 endif
 
+let g:indentLine_char = '·'
+" let g:indentLine_char = '▸'
+" let g:indentLine_setColors = 0
+let g:indentLine_color_term = 239
+" set listchars=eol:⏎,tab:␉·,trail:␠,nbsp:⎵
+
+" Strip trailing whitespaces on save
+autocmd BufWritePre * %s/\s\+$//e
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
