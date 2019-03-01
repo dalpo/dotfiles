@@ -23,6 +23,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'w0rp/ale'
 Plugin 'Yggdroot/indentLine'
+Plugin 'slim-template/vim-slim.git'
 
 " Leader
 let mapleader = " "
@@ -62,13 +63,13 @@ set shiftwidth=2
 set expandtab
 
 " Display trailing spaces
-set list listchars=trail:. 
+set list listchars=trail:.
 
 " Setup vim airline
 let g:airline_theme='simple'
 
 " Setup Ack
-let g:ackprg = 'ag --nogroup --nocolor --column' 
+let g:ackprg = 'ag --nogroup --nocolor --column'
 
 " and use the Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
@@ -112,8 +113,10 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 " Use dracula theme
-colorscheme dracula
+let g:dracula_italic = 0
 let g:airline_theme='dracula'
+
+colorscheme dracula
 
 " Local config
 if filereadable($HOME . "/.vimrc.local")
