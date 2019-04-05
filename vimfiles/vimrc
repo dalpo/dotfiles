@@ -23,7 +23,10 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'w0rp/ale'
 Plugin 'Yggdroot/indentLine'
-Plugin 'slim-template/vim-slim.git'
+" Plugin 'slim-template/vim-slim.git'
+Plugin 'git@github.com:onemanstartup/vim-slim.git'
+Plugin 'ervandew/supertab'
+Plugin 'leafgarland/typescript-vim'
 
 " Leader
 let mapleader = " "
@@ -67,6 +70,8 @@ set list listchars=trail:.
 
 " Setup vim airline
 let g:airline_theme='simple'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail'
 
 " Setup Ack
 let g:ackprg = 'ag --nogroup --nocolor --column'
