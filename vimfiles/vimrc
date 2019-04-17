@@ -12,21 +12,26 @@ Plugin 'VundleVim/Vundle.vim'
 
 " Plugins
 Plugin 'tpope/vim-fugitive'
-Plugin 'elixir-editors/vim-elixir'
-Plugin 'vim-ruby/vim-ruby'
+Plugin 'airblade/vim-gitgutter'
 Plugin 'ctrlp.vim'
 Plugin 'mileszs/ack.vim'
-Plugin 'chriskempson/base16-vim'
-Plugin 'molokai'
+Plugin 'w0rp/ale'
+Plugin 'ervandew/supertab'
+Plugin 'benmills/vimux'
+Plugin 'scrooloose/nerdtree'
 Plugin 'dracula/vim'
 Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'w0rp/ale'
-Plugin 'Yggdroot/indentLine'
-" Plugin 'slim-template/vim-slim.git'
+Plugin 'sotte/presenting.vim'
+" Plugin 'vim-airline/vim-airline-themes'
+" Plugin 'chriskempson/base16-vim'
+" Plugin 'molokai'
+" Plugin 'Yggdroot/indentLine'
+
+" Lang supports
 Plugin 'git@github.com:onemanstartup/vim-slim.git'
-Plugin 'ervandew/supertab'
 Plugin 'leafgarland/typescript-vim'
+Plugin 'elixir-editors/vim-elixir'
+Plugin 'tpope/vim-markdown'
 
 " Leader
 let mapleader = " "
@@ -72,6 +77,15 @@ set list listchars=trail:.
 let g:airline_theme='simple'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
+
+" Setup nerdtree
+map <C-n> :NERDTreeToggle<CR>
+
+" Setup vimux
+" Run the current file with rspec
+map <Leader>rb :call VimuxRunCommand("clear; bundle exec rspec " . bufname("%"))<CR>
+" Run command without sending a return
+map <Leader>rq :call VimuxRunCommand("clear; bundle exec rspec " . bufname("%"), 0)<CR>
 
 " Setup Ack
 let g:ackprg = 'ag --nogroup --nocolor --column'
