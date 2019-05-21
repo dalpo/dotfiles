@@ -11,6 +11,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " Plugins
+Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'ctrlp.vim'
@@ -18,20 +19,40 @@ Plugin 'mileszs/ack.vim'
 Plugin 'w0rp/ale'
 Plugin 'ervandew/supertab'
 Plugin 'benmills/vimux'
-Plugin 'scrooloose/nerdtree'
-Plugin 'dracula/vim'
+" Plugin 'scrooloose/nerdtree'
+" Plugin 'dracula/vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'sotte/presenting.vim'
-" Plugin 'vim-airline/vim-airline-themes'
+Plugin 'vim-airline/vim-airline-themes'
 " Plugin 'chriskempson/base16-vim'
 " Plugin 'molokai'
 " Plugin 'Yggdroot/indentLine'
 
 " Lang supports
 Plugin 'git@github.com:onemanstartup/vim-slim.git'
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'elixir-editors/vim-elixir'
+" Plugin 'slashmili/alchemist.vim'
 Plugin 'tpope/vim-markdown'
+
+" General settings (thanks @Arkham)
+
+set encoding=utf-8
+set t_Co=256                      " moar colors
+
+" set clipboard=unnamed             " use system clipboard
+set nocompatible                  " nocompatible is good for humans
+syntax enable                     " enable syntax highlighting...
+filetype plugin indent on         " depending on filetypes...
+runtime macros/matchit.vim        " with advanced matching capabilities
+"set pastetoggle=<F12>             " for pasting code into Vim
+set timeout tm=1000 ttm=10        " fix slight delay after pressing Esc then O
+set autoread                      " auto load files if vim detects change
+set autowrite                     " auto write files when moving around
+set nobackup                      " disable backup files...
+set noswapfile                    " and swap files
 
 " Leader
 let mapleader = " "
@@ -79,7 +100,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 
 " Setup nerdtree
-map <C-n> :NERDTreeToggle<CR>
+" map <C-n> :NERDTreeToggle<CR>
 
 " Setup vimux
 " Run the current file with rspec
@@ -131,14 +152,18 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-" Use dracula theme
-let g:dracula_italic = 0
-let g:airline_theme='dracula'
-
-colorscheme dracula
-
 " Local config
 if filereadable($HOME . "/.vimrc.local")
   source ~/.vimrc.local
 endif
 
+" Use dracula theme
+" let g:dracula_italic = 0
+" let g:airline_theme='dracula'
+
+" colorscheme dracula
+" colorscheme molokai
+" set background=light
+
+set background=dark
+colorscheme PaperColor
