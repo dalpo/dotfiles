@@ -37,6 +37,21 @@ Plugin 'elixir-editors/vim-elixir'
 " Plugin 'slashmili/alchemist.vim'
 Plugin 'tpope/vim-markdown'
 
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
 " General settings (thanks @Arkham)
 
 set encoding=utf-8
@@ -99,6 +114,10 @@ let g:airline_theme='simple'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 
+" Copy a file using the usual netrw method for copying:
+" https://vi.stackexchange.com/questions/17450/copy-a-file-in-netrw/17460
+let g:netrw_keepdir=0 "(default value is 1) in your vimrc, or
+
 " Setup nerdtree
 " map <C-n> :NERDTreeToggle<CR>
 
@@ -137,20 +156,6 @@ let g:indentLine_color_term = 239
 " Strip trailing whitespaces on save
 autocmd BufWritePre * %s/\s\+$//e
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
 
 " Local config
 if filereadable($HOME . "/.vimrc.local")
