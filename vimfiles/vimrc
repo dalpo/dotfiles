@@ -36,6 +36,7 @@ Plugin 'leafgarland/typescript-vim'
 Plugin 'elixir-editors/vim-elixir'
 " Plugin 'slashmili/alchemist.vim'
 Plugin 'tpope/vim-markdown'
+Plugin 'posva/vim-vue'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -146,6 +147,13 @@ if executable('ag')
     nnoremap \ :Ag<SPACE>
   endif
 endif
+
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
 
 let g:indentLine_char = '·'
 " let g:indentLine_char = '▸'
