@@ -11,7 +11,6 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " Plugins
-Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'ctrlp.vim'
@@ -20,13 +19,18 @@ Plugin 'w0rp/ale'
 Plugin 'ervandew/supertab'
 Plugin 'benmills/vimux'
 " Plugin 'scrooloose/nerdtree'
-" Plugin 'dracula/vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'sotte/presenting.vim'
 Plugin 'vim-airline/vim-airline-themes'
 " Plugin 'chriskempson/base16-vim'
-" Plugin 'molokai'
 " Plugin 'Yggdroot/indentLine'
+Plugin 'editorconfig/editorconfig-vim'
+
+
+" Themes
+" Plugin 'molokai'
+" Plugin 'NLKNguyen/papercolor-theme'
+Plugin 'dracula/vim'
 
 " Lang supports
 Plugin 'git@github.com:onemanstartup/vim-slim.git'
@@ -34,7 +38,6 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'elixir-editors/vim-elixir'
-" Plugin 'slashmili/alchemist.vim'
 Plugin 'tpope/vim-markdown'
 Plugin 'posva/vim-vue'
 
@@ -155,11 +158,11 @@ let g:ctrlp_custom_ignore = {
   \ 'link': 'some_bad_symbolic_links',
   \ }
 
-let g:indentLine_char = '·'
-" let g:indentLine_char = '▸'
+" let g:indentLine_char = '·'
+let g:indentLine_char = '▸'
 " let g:indentLine_setColors = 0
-let g:indentLine_color_term = 239
-" set listchars=eol:⏎,tab:␉·,trail:␠,nbsp:⎵
+" let g:indentLine_color_term = 239
+set listchars=eol:⏎,tab:␉·,trail:␠,nbsp:⎵
 
 " Strip trailing whitespaces on save
 autocmd BufWritePre * %s/\s\+$//e
@@ -171,12 +174,20 @@ if filereadable($HOME . "/.vimrc.local")
 endif
 
 " Use dracula theme
-" let g:dracula_italic = 0
-" let g:airline_theme='dracula'
+syntax on
 
-" colorscheme dracula
+set runtimepath^=~/.vim/bundle/dracula-theme
+colorscheme dracula
+" color dracula
+let g:dracula_italic = 0
+let g:airline_theme='dracula'
+
+" Use molokai
 " colorscheme molokai
 " set background=light
 
-set background=dark
-colorscheme PaperColor
+" Use PaperColor
+" set background=dark
+" colorscheme PaperColor
+
+au BufReadPost *.cap set syntax=ruby
