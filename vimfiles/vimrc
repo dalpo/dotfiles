@@ -25,7 +25,7 @@ Plugin 'vim-airline/vim-airline-themes'
 " Plugin 'chriskempson/base16-vim'
 " Plugin 'Yggdroot/indentLine'
 Plugin 'editorconfig/editorconfig-vim'
-
+Plugin 'APZelos/blamer.nvim'
 
 " Themes
 " Plugin 'molokai'
@@ -191,3 +191,6 @@ let g:airline_theme='dracula'
 " colorscheme PaperColor
 
 au BufReadPost *.cap set syntax=ruby
+
+" Enable blamer by default
+let g:blamer_enabled = 1
