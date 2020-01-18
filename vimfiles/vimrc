@@ -41,6 +41,9 @@ Plugin 'elixir-editors/vim-elixir'
 Plugin 'tpope/vim-markdown'
 Plugin 'posva/vim-vue'
 
+" Full language server protocol support as VSCode
+" Plugin 'neoclide/coc.nvim', { 'branch': 'release' }
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -191,6 +194,7 @@ let g:airline_theme='dracula'
 " colorscheme PaperColor
 
 au BufReadPost *.cap set syntax=ruby
+au BufReadPost *.rbi set syntax=ruby
 
 " Enable blamer by default
 let g:blamer_enabled = 1

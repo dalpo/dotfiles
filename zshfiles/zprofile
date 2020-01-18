@@ -7,5 +7,5 @@ compinit
 
 # setup the default editor
 
-export EDITOR=vim
-export BUNDLER_EDITOR=vim
+export EDITOR=nvim
+export BUNDLER_EDITOR=nvim
