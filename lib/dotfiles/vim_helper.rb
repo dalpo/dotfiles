@@ -5,15 +5,25 @@ require_relative './base_helper'
 module Dotfiles
   # Install Rake tasks for vim
   class VimHelper < BaseHelper
+    VIM_PLUG_INSTALL_URL = 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    VIM_PLUG_CONF = '.local/share/nvim/site/autoload/plug.vim'
+
     # rubocop:disable Metrics/MethodLength
     def install
       namespace :vim do
         desc 'Setup VIM'
-        task install: %i[vundle link plugins] do
+        task install: %i[vim_plug link plugins] do
           puts 'Vim installed!'
         end
 
-        desc 'Install Vundle'
+        desc 'Install Vim Plug'
+        task :vim_plug do
+          conf_path = home(VIM_PLUG_CONF)
+          warn 'Upgrading Vim Plug...' if File.exist? conf_path
+          sh "curl -fLo #{conf_path} --create-dirs #{VIM_PLUG_INSTALL_URL}"
+        end
+
+        desc '[Deprecated] Install Vundle'
         task :vundle do
           if File.exist? home('.vim/bundle/Vundle.vim')
             warn 'Vundle already installed'
